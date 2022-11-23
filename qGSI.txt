@@ -1,0 +1,192 @@
+
+01.txt
+2022-11-19 23:06:26.989110
+test
+
+==========
+ 
+
+1.txt
+2022-11-19 03:23:24.679797
+Pierwszy wpis w moim w³asnym notatniku. Czujê ¿e zbli¿a siê prze³omowy moment: oto wreszcie zrobi³em appke do zapisywania dziennika. Taka która jest dla mnie wygodna. I minimalistyczna :D. Z czasem spróbujê dodaæ wiêcej funkcji : jak na razie jest to tylko create, update, read.. Bardzo mi siê podoba ta appka. Mo¿e jeszcze jak¹œ enkrypcjê dokurwie xD Zobaczymy. Póki co jestem zadowolony i nazwijmy to dniem. Aha i staram siê ju¿ nie przeklinaæ w swoim kodzie. Mrrau!
+
+==========
+ 
+
+10.txt
+2022-11-21 01:20:16.861426
+Teraz zadzwoni³ Sidney. I sobie gada jakieœ rzeczy. Okaza³o siê ¿e jak rozmawialiœmy to sobie chla³ po kryjomu. Teraz mówi ¿e napisa³ maila do swojej mamy. ¯e kocha j¹ lecz przypomina jej te inne rzeczy, których nie lubi³. Które mu siê nie podoba³y. Poleci³em mu nie zwracaæ na to zbytniej uwagi lecz skupiæ siê na przebaczeniu. On opowiada mi o brakach mi³oœci.  I rozmawiamy o taoizmie i o Oppenheimer. I am become death xD 
+
+==========
+ 
+
+11.txt
+2022-11-22 11:14:35.744526
+Wracam z listem od Garonda. Mia³em w³aœnie rozmowê o pracê z Jan¹, firme Chapwise chy jakiœ inny chopstik. Jakieœ antyterrorystyczne lotniskowce helikoptery i Bóg wie co jeszcze. Rodzice wys³ali mi filmek z Feurta Ventura. Dobra, to plan na dziœ jest taki: odkurzanko, sklep ¿eby jakiœ karton kupiæ na laptoka, spakowaæ laptoka, wys³aæ go no i CV ogarn¹æ bo Jana mi jakieœ poprawki :- arrange better the "skills", "languages", "hobbies" - they take too much space in the CV. Put "hobbies" to the bottom part of the CV (it is not much relevant to the job usually) - do not use so many different types/sizes of fonts - put the most actual/present job on the top and the oldest below - leave the primary school (it is not necessary to mention it) and put the schools in the correct chronological order (the most recent one on the top and the oldest below) - the endings of the sentences are not readible enough (they go beyond the white document and it is impossible to read the whole sentence). Please, put it more in the middle (better formatting) - use pdf format if possible
+
+==========
+ 
+
+12.txt
+2022-11-23 17:56:54.939409
+W³aœnie nauczy³em siê robiæ wyszukiwanie w swoich treœciach. Teraz mogê tagowaæ swoje notatki i znaleœæ w nich dok³adnie to czego szukam. Wystarczu #python ¿ebym móg³ siê póŸniej ³atwo zorientowaæ która z moich notatek dotyczy czego i móg³ ³atwo wyszukiwaæ w nich np s³owo i otaczaj¹ce je zdanie +- 6 s³ów. I tak stworzê doskona³y notatnik pod moje potrzeby bo bêde móg³ spamowaæ notatkami kiedy tylko potrzebuje coœ zapamiêtaæ i zawsze bêdê mia³ pod kontrol¹ swojê wymys³y. #living_smarter
+
+==========
+ 
+
+2.txt
+2022-11-19 03:44:20.384624
+To tylko ma³y update do tej samej nocy. Odkry³em jak otwieraæ pliki python w terminalu windows. Wystarczy "cd C:\Users\A\PycharmProjects\Giraffe" a nastêpnie "python notepad.py" i hula nebula. Ding dong, jadê t¹ wind¹. Python jest dla mnie coraz lepszy. Kocham was! Dziêkujê anio³om i Jezusowi. 
+
+==========
+ 
+
+3.txt
+2022-11-19 03:49:30.937260
+A tutaj tylko pokazujê Viktorii jak dzia³a mój notatnik. <3
+
+==========
+ 
+
+4.txt
+2022-11-19 03:49:30.937260
+Ja bardzo kocham Artura *serdiuszko*
+
+==========
+ 
+
+5.txt
+2022-11-19 14:09:42.137674
+W³aœnie wsta³em sobie. Dzisiaj pospa³em bo wczoraj siedzia³em nad notatnikiem. Viktoriia mia³a straszny sen, a ja nie pamiêtam chyba snów. Idê zaraz po piwko do Alberta i bede nakoorwiaæ w battlebit ca³y bo¿y dzieñ, a póŸniej dokoñcze szybko wyk³ady. Cieszê siê ¿e uda³o mi siê ju¿ napisaæ pierwsza czêœæ notatnika, i dzia³a ju¿ oprogramowanie. Wiêcej takich nied³ugo. Czuwaj!
+
+==========
+ 
+
+6.txt
+2022-11-19 20:36:45.348874
+Skoñczy³em graæ w battlebit. VViktoriia posz³a z kole¿ank¹ na randkê a ja teraz biorê siê za pythona, i wyk³ady. Zobaczê co najpierw ale wyk³ady skoñcze prznajmniej l1 dzisiaj. 
+
+==========
+ 
+
+7.txt
+2022-11-19 23:04:45.986586
+W³aœnie prawie koñczê wyk³ad. By³y "for loop" i "do while loop". Dziêki bogu skoro zmieniamy to C na pythona, ale rozumiem dlaczego warto sie go uczyæ. 
+
+==========
+ 
+
+8.txt
+2022-11-20 02:18:37.801106
+Wyk³ad 1 skoñczony. Zaczynam ju¿ wyk³ad 2 - Arrays. Zobaczymy co nam to przyniesie dobrego. Na pewno bardzo du¿o. Na razie siê rozkojarzy³em i otworzy³em notatnik. To jest komfortuj¹ce pisaæ bia³ymi literkami na czarnym tle konsoli. Powoli migaj¹cy kursor uspokaja swoim blaskiem. Czujê siê trochê jak Dan Brown opisywa³ te data centrum w "Kodzie Leonarda da Vinci". Mo¿e obejrze jutro ten film z Viktorii¹. By³oby fajnie. DObra koñczê to, mo¿e pod³ubiê trochê w notatniku i poczekam a¿ mi wróci chêtka na wyk³ady. Pozdrawiam.
+
+==========
+ 
+
+9.txt
+2022-11-20 21:53:00.420531
+Rozmawiamy z Sidneyem i s³uchamy Neptune the mystic. Mówi ¿e ta piosenka wchodzi g³êboko do ziemi i znajduje sekrety, minera³y i skarby. Ciekawe... Neptun mocno zaznacza swoj¹ obecnoœæ. Ciekawe czy istnieje jakaœ interesuj¹ca zbie¿noœæ astrologiczna na tê okazje. Chyba ka¿dy z nas ma swoj¹ magiczn¹ naturê z któr¹ musi siê podzieliæ poniewa¿ wychodzi ona na powierzchniê. I tak dzia³a inercja i potêga. 
+
+==========
+ 
+
+cebula.txt
+2022-11-20 07:03:13.131283
+cebulka pyszna jest
+
+==========
+ 
+
+cebulaaa.txt
+2022-11-20 07:05:20.739525
+cebula jest smaczna i zdrowa!
+
+==========
+ 
+
+s1.txt
+2022-11-23 10:58:25.329750
+Mia³em sen. ¯e dosta³em czy znalaz³em jakieœ takie zwierz¹tko i to chyba by³ dziobak. I ten dziobak sobie tak œmiesznie popierdala³ po domku. No i ja go chcia³em umyæ i on siê tak¹ ¿ó³t¹ pian¹ pokry³ i okaza³o siê ¿e mu oczy tak jakoœ wylaz³y z orbit czy sie spali³y i okaza³o siê ¿e to by³a mysz komputerowa od microsoft?
+
+==========
+ 
+
+s2.txt
+2022-11-23 11:00:07.930539
+No i jeszcze drugi sen do s1, to ¿e mnia³em jak¹œ wycieczkê do lasu z Dagmar¹ i kimœtam i jakiœ tam by³ domek i jakiieœ magiczne stwory i wogóle chujwieco i ona ten domek mia³a siê nim opiekowaæ dla znajomych. No i zadupialiœmy po tym lesie i coœtam patrzaliœmy jakieœ pos¹gi czy coœ. Nie pamiêtam ju¿. Mi³ego dnia! 
+
+==========
+ 
+
+testChoice.py
+import datetime
+import os 
+import random
+
+cytaty = []
+
+def skaner_plikow():        #skanuje directory i zapisuje je do entry i drukuje go.
+    print("Oto lista plikÃ³w w tym folderze: ")
+    print(" ")
+    for entry in os.scandir('.'):
+        if not entry.name.startswith('notepad.py') and not entry.name.startswith('q') and entry.is_file():
+            print("*"+entry.name)
+    print(" ")
+
+def losuj_cytat():            #otwiera losowo jeden z plikÃ³w ktÃ³rych nazwa zaczyna siÄ™ na q(liczba)
+    r = random.randrange(4)
+    f = open("q" + str(r) + ".txt", "r")
+    print("_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  \n")
+    print(f.read()) 
+    print("_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  \n")
+    print("")
+
+def scan_files_to_list():
+    for entry in os.scandir('.'):
+        if entry.name.startswith('q') and entry.is_file() and entry.name.endswith((".txt", ".TXT")):
+            print(entry.name)
+            cytaty.append(entry.name)
+    
+print(cytaty)
+scan_files_to_list()
+print(cytaty)
+print(random.choice(cytaty))
+
+
+
+==========
+ 
+
+timeTest.txt
+2022-11-20 05:19:25.459613
+05:20
+
+==========
+ 
+
+timeTest2.txt
+2022-11-20 05:22:01.106803
+05:22
+
+==========
+ 
+
+_help.txt
+Witaj w pomocy NoTaTnIkA! masz do dyspozycji nastÄ™pujÄ…ce komendy:
+
+[n] - tworzy nowÄ… notke 
+[o] - otwiera wybranÄ… notkÄ™ 
+[d] - pokazuje notatki w tym folderze 
+[del] - kasuje plik
+
+[x]/[cytat] - losuje cytat
+
+[c] - czyÅ›ci konsolÄ™
+[h] - panel z pomocÄ… 
+[q] - wyjdÅº z programu 
+
+
+		Autor: Artur Antoni Krzysztof Kowalik
+
+==========
+ 

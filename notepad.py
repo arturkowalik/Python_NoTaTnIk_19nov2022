@@ -1,7 +1,7 @@
 import datetime
 import os 
 import random
-
+from pathlib import Path
 
 
 #variables#
@@ -123,9 +123,80 @@ def mainLoop():         #główna pętla programu. zajmuję się danymi wejścio
     elif menu1 =="q":       
         exit()
         
+    elif menu1 =="s":
+        search()
+        
         
     else:  
         print("Nie rozumiem. wpisz 'o' albo 'n'! Wpisz 'q' jeśli chcesz wyjść!   ")   
+
+
+def search():
+#program #
+                                #search for strings inside a bigger strings
+    global_files_search_index = []
+    for entry in os.scandir('.'):
+        if not entry.name.startswith('notepad.py') and not entry.name.startswith('q') and entry.is_file():
+            
+            global_files_search_index.append(entry.name) 
+    #print(global_files_search_index)
+    
+    # skaner_plikow()    
+    # nazwa_wpisu = input("Wybierz nazwę pliku (bez.txt): ")
+    # nazwaplikutxt = nazwa_wpisu+".txt"
+    # if os.path.exists(nazwa_wpisu+".txt"):
+    #     print("_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  \n")
+    #     search.x = Path(nazwaplikutxt).read_text()
+    #     print(search.x)
+    #     print("_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  \n")
+    #     print("")
+    # else: print("Ten plik nie istnieje w tym folderze.")
+    
+    file_object  = open('qGSI.txt', 'a')
+    file_object.truncate(0)
+
+    #index wszystkich słów do jednego plikuj qGSI.txt
+    for filenameinGFSI in global_files_search_index:
+        file_object  = open('qGSI.txt', 'a')
+        file_object.write("\n"+ filenameinGFSI+ "\n")
+        file_object.write(Path(filenameinGFSI).read_text())
+        file_object.write("\n\n==========\n \n")
+        #file_object.close()
+        
+    
+    
+    f = open('qGSI.txt', 'r')                                  #This is the text to search in ")               #take input form user in form of string as database to search in
+    st = f.read()
+    st = st.lower()                                             #lowercase  the list
+
+    lst = st.split()                                            #create a list from the user input, so each word is a sparate element
+    #print(lst)    
+
+    search_input = input("What word are you looking for? ")     #ask for the word to search for in the database
+    search_input = search_input.lower()                         #lowercase the input
+    f = "info has been found in the index: "
+    ff = "Wokół nastepujących słów: "
+    sindex = 0
+    def lookFor():                                              #loop the database list with the question is the word there
+        for word in lst:                                        #for every element in the list
+            if word == search_input:                            #check if element is same as the searched word
+                sindex = st.index(search_input)
+                print("\n '" + search_input + "' was located in this context: " + "\n")
+                i=-65 
+                while i< 65:
+                    print(st[sindex+i], end=" ")
+                    i += 1
+                print("\n")
+
+                return True                                     #and return True + break out of loop
+        print("The string  '" + search_input + "'  was not found in the Global Search Index")                                      #else print negative message
+        
+        
+    lookFor()                                                   #exectue the loop once
+#end of program
+
+
+       
 
 
 #właściwy program#
