@@ -2,6 +2,7 @@ import datetime
 import os 
 import random
 from pathlib import Path
+import climage
 
 
 #variables#
@@ -10,6 +11,16 @@ main_menu = False
 cytaty = []
 
 #funkcje#
+
+def print_images(img_index, size):              #funkcja ta drukuje obrazky w konsolecie
+    images=[]           #create list of files
+    for entry in os.scandir('.'):       #scan the folder and add elements to list images[]
+        if entry.name.startswith('q_img_') and entry.is_file():        #include _img files
+            images.append(entry.name)           #append list
+    #print(images)
+    img = climage.convert(images[img_index], is_unicode=True, width=size)   
+    print(img)
+
 def skaner_plikow():        #skanuje directory i zapisuje je do entry i drukuje go.
     print("Oto lista plików w tym folderze: ")
     print(" ")
@@ -21,7 +32,7 @@ def skaner_plikow():        #skanuje directory i zapisuje je do entry i drukuje 
 def powitanie():        #generuję nam date i godzinę
     datetime_object = datetime.datetime.now()
     print(" ")
-    print(25*" "+"-=-=-=-=-=   " + "Witaj w NoTaTnIkUv0.03!    " + str(datetime_object) + "   =-=-=-=-=-"+25*" " ) 
+    print(10*" "+"-=-=-=-=-=   " + "Witaj w NoTaTnIkUv0.03!    " + str(datetime_object) + "   =-=-=-=-=-"+10*" " ) 
     print("")
     print("Wciśnij [h] i enter aby uzyskać pomoc.")
     global main_menu
@@ -65,7 +76,7 @@ def new_note():         #tworzy plik nowa notatka
     else: print("Zaniechano!")
 
 def help():         #otwiera pomoc
-    f = open("_help.txt", "r", encoding="utf-8")
+    f = open("qhelp.txt", "r", encoding="utf-8")
     print("_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  \n")
     print(f.read()) 
     print("_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  \n")
@@ -90,7 +101,8 @@ def cls():      #czyści terminal
     os.system('cls' if os.name=='nt' else 'clear')
 
 def mainLoop():         #główna pętla programu. zajmuję się danymi wejściowymi do menu 
-    menu1 = input("Chcesz stworzyć (n)owy plik, czy (o)tworzyć już istniejący*? (*read only)   ")
+    #PL menu1 = input("Chcesz stworzyć (n)owy plik, czy (o)tworzyć już istniejący*? (*read only)   ")
+    menu1 = input("(N)ew note, (o)pen note, (d)isplay, (s)earch, (del)ete, (x) random quote, (c)lear console, (h)elp, (q)uit   ")
 
 
     if menu1 == "n":    
@@ -110,6 +122,8 @@ def mainLoop():         #główna pętla programu. zajmuję się danymi wejścio
         
     elif menu1 =="c":
         cls()
+        print_images(4, 100)
+
       
         
     elif menu1 =="d":
@@ -136,21 +150,9 @@ def search():
                                 #search for strings inside a bigger strings
     global_files_search_index = []
     for entry in os.scandir('.'):
-        if not entry.name.startswith('notepad.py') and not entry.name.startswith('q') and entry.is_file():
+        if not entry.name.startswith('notepad') and not entry.name.startswith('q') and entry.is_file():
             
             global_files_search_index.append(entry.name) 
-    #print(global_files_search_index)
-    
-    # skaner_plikow()    
-    # nazwa_wpisu = input("Wybierz nazwę pliku (bez.txt): ")
-    # nazwaplikutxt = nazwa_wpisu+".txt"
-    # if os.path.exists(nazwa_wpisu+".txt"):
-    #     print("_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  \n")
-    #     search.x = Path(nazwaplikutxt).read_text()
-    #     print(search.x)
-    #     print("_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  \n")
-    #     print("")
-    # else: print("Ten plik nie istnieje w tym folderze.")
     
     file_object  = open('qGSI.txt', 'a')
     file_object.truncate(0)
@@ -170,29 +172,42 @@ def search():
     st = st.lower()                                             #lowercase  the list
 
     lst = st.split()                                            #create a list from the user input, so each word is a sparate element
-    #print(lst)    
+    #print("\n", sorted(lst))    
 
-    search_input = input("What word are you looking for? ")     #ask for the word to search for in the database
+    search_input = input("\n What word are you looking for?: ")     #ask for the word to search for in the database
     search_input = search_input.lower()                         #lowercase the input
+    if search_input == "q":
+        return
     f = "info has been found in the index: "
     ff = "Wokół nastepujących słów: "
-    sindex = 0
-    def lookFor():                                              #loop the database list with the question is the word there
-        for word in lst:                                        #for every element in the list
-            if word == search_input:                            #check if element is same as the searched word
-                sindex = st.index(search_input)
-                print("\n '" + search_input + "' was located in this context: " + "\n")
-                i=-65 
-                while i< 65:
-                    print(st[sindex+i], end=" ")
-                    i += 1
-                print("\n")
+        
+    def list_duplicates_of(seq,item):
+        start_at = -1
+        locs = []
+        while True:
+            try:
+                loc = seq.index(item,start_at+1)
+            except ValueError:
+                break
+            else:
+                locs.append(loc)
+                start_at = loc
+        return locs
 
-                return True                                     #and return True + break out of loop
-        print("The string  '" + search_input + "'  was not found in the Global Search Index")                                      #else print negative message
-        
-        
-    lookFor()                                                   #exectue the loop once
+    source = lst
+    #print(list_duplicates_of(source, search_input))   
+    globalMatches = list_duplicates_of(lst, search_input) 
+    total_counts = 0
+    for index in globalMatches:
+        total_counts += 1
+        print("\n =====> index["+ str(index)+"]  '" + search_input + "'  was located in this context: ")
+        i=-10 
+        print("...", end=' ')
+        while i< 10:
+            print(lst[index+i], end=" ")
+            i += 1
+        print("... \n")
+    print("========== SEARCH FINISHED with "+ str(total_counts) +" results! ========== \n \n" )    
 #end of program
 
 
@@ -200,7 +215,7 @@ def search():
 
 
 #właściwy program#
-
+print_images(3, 100)
 scan_quotes_to_list()
 powitanie()
 while main_menu == True:

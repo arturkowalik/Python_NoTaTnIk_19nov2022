@@ -1,0 +1,16 @@
+Witaj w pomocy NoTaTnIkA! masz do dyspozycji następujące komendy:
+
+[n] - tworzy nową notke 
+[o] - otwiera wybraną notkę 
+[d] - pokazuje notatki w tym folderze 
+[del] - kasuje plik
+[s] - wyszukuje we wszystkich notatkach w tym folderze
+
+[x]/[cytat] - losuje cytat
+
+[c] - czyści konsolę
+[h] - panel z pomocą 
+[q] - wyjdź z programu 
+
+
+		Autor: Artur Antoni Krzysztof Kowalik
