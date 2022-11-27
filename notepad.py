@@ -3,6 +3,9 @@ import os
 import random
 from pathlib import Path
 import climage
+from termcolor import colored
+import fuzzywuzzy
+from rapidfuzz import fuzz
 
 
 #variables#
@@ -22,11 +25,14 @@ def print_images(img_index, size):              #funkcja ta drukuje obrazky w ko
     print(img)
 
 def skaner_plikow():        #skanuje directory i zapisuje je do entry i drukuje go.
+    files_list = [] 
     print("Oto lista plików w tym folderze: ")
     print(" ")
     for entry in os.scandir('.'):
         if not entry.name.startswith('notepad.py') and not entry.name.startswith('q') and entry.is_file():
+            files_list.append(entry.name)
             print("*"+entry.name)
+
     print(" ")
 
 def powitanie():        #generuję nam date i godzinę
@@ -48,7 +54,7 @@ def losuj_cytat():            #otwiera losowo jeden z plików których nazwa zac
     
 def scan_quotes_to_list():
     for entry in os.scandir('.'):
-        if entry.name.startswith('q') and entry.is_file() and entry.name.endswith((".txt", ".TXT")):
+        if entry.name.startswith('q') and entry.is_file() and entry.name.endswith((".txt", ".TXT")) and not entry.name.startswith("qq"):
             cytaty.append(entry.name)
 
 
@@ -102,7 +108,8 @@ def cls():      #czyści terminal
 
 def mainLoop():         #główna pętla programu. zajmuję się danymi wejściowymi do menu 
     #PL menu1 = input("Chcesz stworzyć (n)owy plik, czy (o)tworzyć już istniejący*? (*read only)   ")
-    menu1 = input("(N)ew note, (o)pen note, (d)isplay, (s)earch, (del)ete, (x) random quote, (c)lear console, (h)elp, (q)uit   ")
+    defauly_text = colored("(N)ew note, (o)pen note, (d)isplay, (s)earch, (del)ete, (x) random quote, (c)lear console, (h)elp, (q)uit",'yellow' ,attrs=["reverse"]) + "    " 
+    menu1 = input(defauly_text)
 
 
     if menu1 == "n":    
@@ -139,10 +146,16 @@ def mainLoop():         #główna pętla programu. zajmuję się danymi wejścio
         
     elif menu1 =="s":
         search()
+    
+    elif menu1 =="g":
+        skanuj_gsi()
+
+    elif menu1 =="gs":
+        skanuj_gsi_posortowane()
         
         
     else:  
-        print("Nie rozumiem. wpisz 'o' albo 'n'! Wpisz 'q' jeśli chcesz wyjść!   ")   
+        print("command unknown. Try entering 'h' for help. ")   
 
 
 def search():
@@ -170,11 +183,11 @@ def search():
     f = open('qGSI.txt', 'r')                                  #This is the text to search in ")               #take input form user in form of string as database to search in
     st = f.read()
     st = st.lower()                                             #lowercase  the list
-
+    lst = []
     lst = st.split()                                            #create a list from the user input, so each word is a sparate element
     #print("\n", sorted(lst))    
-
-    search_input = input("\n What word are you looking for?: ")     #ask for the word to search for in the database
+    search_input_question = colored("\n What word are you looking for?:", 'blue', attrs=["reverse"]) + "   "
+    search_input = input(search_input_question)     #ask for the word to search for in the database
     search_input = search_input.lower()                         #lowercase the input
     if search_input == "q":
         return
@@ -194,24 +207,131 @@ def search():
                 start_at = loc
         return locs
 
+    fuzzy_list=[]
+    
+    for element in lst:
+        if(fuzz.ratio(element, search_input)) > 90:
+            fuzzy_list.append(element)
+    
+    
+    print (fuzzy_list, "fuzzylist!")   
+    fuzzy_list = list(dict.fromkeys(fuzzy_list))
+    print (fuzzy_list, "fuzzylistdict!")
+
+    globalMatches = []
     source = lst
     #print(list_duplicates_of(source, search_input))   
     globalMatches = list_duplicates_of(lst, search_input) 
+    #print(globalMatches)
+    
+    if search_input in fuzzy_list:
+        fuzzy_list.remove(search_input)
+    
+    if len(fuzzy_list) > 0:
+        globalMatches1 = list_duplicates_of(lst, fuzzy_list[0]) 
+    if len(fuzzy_list) > 1:
+        globalMatches2 = list_duplicates_of(lst, fuzzy_list[1]) 
+    if len(fuzzy_list) > 2:
+        globalMatches3 = list_duplicates_of(lst, fuzzy_list[2]) 
+    #print(globalMatches1)
+    
+    #print(globalMatches)
     total_counts = 0
     for index in globalMatches:
         total_counts += 1
-        print("\n =====> index["+ str(index)+"]  '" + search_input + "'  was located in this context: ")
-        i=-10 
+        print("\n" + colored("▋", 'blue',attrs=[ "blink"])+"["+ colored(str(index), 'green')+"]  " + colored(search_input, attrs=["reverse"]))
+        i=-13 
         print("...", end=' ')
-        while i< 10:
+        while i< 13:
             print(lst[index+i], end=" ")
             i += 1
+            
+            
         print("... \n")
-    print("========== SEARCH FINISHED with "+ str(total_counts) +" results! ========== \n \n" )    
+    print("========== SEARCH FINISHED with "+ colored(str(total_counts), 'yellow', attrs=["bold", "blink", "reverse"]) +" results ! ========== \n \n" )   
+    
+    if len(fuzzy_list) >= 1:
+        total_counts1 = 0
+        for index in globalMatches1:
+            
+            total_counts1 += 1
+            print("\n" + colored("▋", 'cyan',attrs=[ "blink"])+"["+ colored(str(index), 'green')+"]  " + colored(fuzzy_list[0], attrs=["reverse"]), colored("f", 'cyan'))
+            i=-13 
+            print("...", end=' ')
+            while i< 13:
+                print(lst[index+i], end=" ")
+                i += 1
+                
+                
+            print("... \n")
+        print("========== FUZZY SEARCH FINISHED with "+ colored(str(total_counts1), 'yellow', attrs=["bold", "blink", "reverse"]) +" results! ========== \n \n" )   
+
+
+    if len(fuzzy_list) >= 2:
+        total_counts2 = 0
+        for index in globalMatches2:
+            
+            total_counts2 += 1
+            print("\n" + colored("▋", 'magenta',attrs=[ "blink"])+"["+ colored(str(index), 'green')+"]  " + colored(fuzzy_list[1], attrs=["reverse"]), colored("f", 'cyan' ))
+            i=-13 
+            print("...", end=' ')
+            while i< 13:
+                print(lst[index+i], end=" ")
+                i += 1
+                
+                
+            print("... \n")
+        print("========== FUZZY SEARCH FINISHED with "+ colored(str(total_counts2), 'yellow', attrs=["bold", "blink", "reverse"]) +" results! ========== \n \n" )   
+
+
+    if len(fuzzy_list) >= 3:
+        total_counts3 = 0
+        for index in globalMatches3:
+            
+            total_counts3 += 1
+            print("\n" + colored("▋", 'yellow',attrs=[ "blink"])+"["+ colored(str(index), 'green')+"]  " + colored(fuzzy_list[2], attrs=["reverse"]), colored("f", 'cyan' ))
+            i=-13 
+            print("...", end=' ')
+            while i< 13:
+                print(lst[index+i], end=" ")
+                i += 1
+                
+                
+            print("... \n")
+        print("========== FUZZY SEARCH FINISHED with "+ colored(str(total_counts2), 'yellow', attrs=["bold", "blink", "reverse"]) +" results! ========== \n \n" )   
+
+
+
+
+    def search_index():
+        index = input("search index? :")
+        print("...", end=' ')
+        i = -150
+        while i< 150:
+            print(lst[int(int(index) + i)], end=" ")
+            i += 1              
+
+        print("... \n")
+    
+    if total_counts>0:  search_index()    
 #end of program
 
 
-       
+
+def skanuj_gsi():
+    f = open('qGSI.txt', 'r')                                  #This is the text to search in ")               #take input form user in form of string as database to search in
+    st = f.read()
+    st = st.lower()                                             #lowercase  the list
+    lst = st.split()                                            #create a list from the user input, so each word is a sparate element
+    print(lst)
+
+def skanuj_gsi_posortowane():
+    f = open('qGSI.txt', 'r')                                  #This is the text to search in ")               #take input form user in form of string as database to search in
+    st = f.read()
+    st = st.lower()                                             #lowercase  the list
+    lst = st.split()                                            #create a list from the user input, so each word is a sparate element
+    lst = sorted(lst)
+    print(lst)
 
 
 #właściwy program#
